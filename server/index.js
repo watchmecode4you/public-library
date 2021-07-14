@@ -3,13 +3,13 @@ const app = express()
 const env = require("dotenv")
 env.config()
 const morgan = require("morgan")
-const router = require("./router")
 const port = process.env.PORT
 
 app.use(morgan("tiny"))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
+const router = require("./router")
 app.use('/', router)
 
 // catch 404 and forward to error handler

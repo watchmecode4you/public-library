@@ -12,7 +12,7 @@ let client = new Client({
 
 client.connect(err => {
     if(!err) console.log("Successfully connected to the postresql")
-    if(err) consnole.log("Failed to connect to postgresql")
+    if(err) console.log("Failed to connect to postgresql")
 })
 
 module.exports = client
