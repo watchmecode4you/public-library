@@ -19,10 +19,10 @@ exports.getBooks = async (req, res) => {
 }
 
 exports.find = async (req, res, next) => {
-    let searchTerm = req.query.search
+    let searchTerm = req.query.search.trim().toLowerCase()
     try{
         let like_expression = `Like '%${searchTerm}%'`
-        let query = `SELECT * FROM public."Books" WHERE name ${like_expression} ORDER BY name ASC `
+        let query = `SELECT * FROM public."Books" WHERE LOWER(name) ${like_expression} ORDER BY name ASC `
         const books = await client.query(query)
         if (books.rows.length <= 0) res.status(200).json(books.rows)
         else res.status(200).json(books.rows)
