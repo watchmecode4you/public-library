@@ -23,6 +23,12 @@ function App() {
         .then((data) => {console.log(data); setBooks(data)})
         .catch((err) => setError(err))
     }
+
+    // let booksContainer = document.getElementsByClassName('books-container')
+    // let booksTop = booksContainer.offsetTop
+    // console.log(booksTop)
+    // window.scrollTo({top: booksTop, behavior: 'smooth'});
+
   }
 
   
