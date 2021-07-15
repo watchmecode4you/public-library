@@ -1,9 +1,19 @@
 import React, {useState} from 'react'
+import $ from 'jquery'
 
 const SearchBar = () => {
     const [first, setRating] = useState("")
     const [last, setName] = useState("")
     const [days, setAuthor] = useState(0)
+
+    $(window).on('scroll', function() { 
+        if ($(window).scrollTop() >= $( '.header').offset().top + $('.header').outerHeight()) { 
+            $('.search-criteria').css("display","block");
+        }
+        else{
+            $('.search-criteria').css("display","none");
+        }
+    });
 
     const handleRating = (e) => {
         setRating(e.target.value)
