@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useState} from "react"
-import {Books} from './BooksComponent'
+import {Books} from './ComponentBooks'
+import {SearchBar} from './ComponentSearchBar'
 
 function App() {
   const [error, setError] = useState(null)
@@ -14,20 +15,18 @@ function App() {
     }
   }
 
-
   const findBook = () => {
     if(searchTerm.trim() !== ""){
       let url = `/books/find/?search=${searchTerm}`
       fetch(url)
         .then((res) => res.json())
-        .then((data) => {console.log(data); setBooks(data)})
+        .then((data) => setBooks(data))
         .catch((err) => setError(err))
     }
 
-    // let booksContainer = document.getElementsByClassName('books-container')
-    // let booksTop = booksContainer.offsetTop
-    // console.log(booksTop)
-    // window.scrollTo({top: booksTop, behavior: 'smooth'});
+    let booksContainer = document.querySelector('.books-container')
+    let booksTop = booksContainer.offsetTop
+    window.scrollTo({top: booksTop, behavior: 'smooth'});
 
   }
 
@@ -44,14 +43,24 @@ function App() {
           <div className="criteria">
               <div className="search-group">
                 <input type="text" className="form-control" onChange={assignSearch} id="searchTerm" name="searchTerm" placeholder="Pride and Prejudice, Harry Poter ..."/>
-                <button type="button" className="btn btn-light" onClick={findBook}>Search Book</button>
+                <button type="button" className="btn btn-light" onClick={findBook}>Search</button>
               </div>
           </div>
         </header>
         <Books books={books} error={error}/>
+        <SearchBar />
         <footer className="footer">
-
-        </footer>
+          <div className="container">
+              <div className="row">
+                  <div className="col-md-12 copyright">  
+                      <h6>Copyrights &copy; Joseph Maary</h6>
+                  </div>
+                  <div className="col-md-12 copyright">
+                      <h6>josephmaary@outlook.com</h6>
+                  </div> 
+              </div>         
+          </div>
+      </footer>
       </div>
     </div>
   );

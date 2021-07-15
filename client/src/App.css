@@ -1,3 +1,7 @@
+*{
+  transition: all .2s ease-out;
+}
+
 .main-div {
   background-image: url(./library.jpg);
   background-position: center;
@@ -80,7 +84,7 @@
 .books-container{
   height:1600px;
   color: black;
-  background-image: url(./brown-shelf.jpg);
+  background-image: url(./shelf.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -116,7 +120,13 @@
 
 .fig-caption{
   font-family: 'Open Sans', sans-serif;
+  font-size: medium;
   text-align: center;
+}
+
+.fig-caption span{
+  font-style: italic;
+  font-weight: 900;
 }
 
 .reserved{
@@ -134,3 +144,156 @@
   font-size: 18px;
   width: 100%;
 }
+
+/* classes for the pop up window*/
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal_content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: relative;
+  width:70%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.modal_content .close{
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  border-radius: 50%;
+}
+
+.modal_content  .big {
+  width:50px;
+  height: 50px;
+  font-size: 18px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.modal_content .small {
+  width:25px;
+  height: 25px;
+  font-size: 16px;
+  margin: 1px;
+}
+
+.modal_content .close:hover{
+  cursor: pointer;
+  background-color: #0065d1;
+  color: white;
+  
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width:50%
+}
+
+.form .quote{
+  margin: 20px;
+  font-size: 35px;
+  font-style: italic;
+  font-family: 'Libre Bakerville', serif;
+}
+
+.form-group{
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 10px;
+}
+
+.form-group label{
+  width: 100%;
+  font-size: 16px;
+  text-align: left;
+}
+
+.form-group input{
+  height: 30px;
+}
+
+.cover-photo{
+  width: 40%;
+  padding: 30px;
+}
+
+.cover-photo img{
+  width:80%;
+  height: 300px;
+}
+
+/* ============Footer===============*/
+.footer{
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  color: #333333;
+}
+.footer .copyright h6{
+  text-align: center;
+}
+
+/* ============Floating Choices section===============*/
+/* .floating-choices{
+  display: block;
+  z-index: 2;
+  position:fixed;
+  bottom: 10px;
+  right: 20px;
+  opacity: 0.3;
+  transition: 0.3s;
+  -o-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -webkit-transition: 0.3s;
+}
+.floating-choices:hover{
+  z-index: 2;
+  bottom: 30px;
+  right: 60px;
+  transform: scale(1.5);
+  opacity: 1;
+  cursor: pointer;
+}
+.floating-choices div{
+  text-align: center;
+  margin: 5px;
+  border-style: solid;
+  border-color: #BCBDBF;
+  border-radius: 20px;
+  border-width: 1px;
+  color: #BCBDBF;
+  transition: 0.7s;
+  -o-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -webkit-transition: 0.7s;
+}
+.floating-choices div:hover{
+  background-color: #129cf3;
+  border-color: #129cf3;
+  color: white;
+}
+.floating-choices div span{
+  font-family: 'Raleway', 'Sans Serif';
+  font-weight: 700;
+  padding: 5px;
+} */

@@ -8,4 +8,8 @@ router.get('/books', Controller.getBooks)
 
 router.get('/books/find', Controller.find)
 
+router.get('/books/find/:id', Controller.findbyId)
+
+router.post('/reserve', Controller.reserve)
+
 module.exports = router
