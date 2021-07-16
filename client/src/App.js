@@ -14,7 +14,7 @@ function App() {
       setBooks([])
     }
   }
-  
+
   const findBook = () => {
     if(searchTerm.trim() !== ""){
       let url = `/books/find/?search=${searchTerm}`
@@ -23,14 +23,17 @@ function App() {
         .then((data) => setBooks(data))
         .catch((err) => setError(err))
     }
-
+    
     let booksContainer = document.querySelector('.books-container')
     let booksTop = booksContainer.offsetTop
     window.scrollTo({top: booksTop, behavior: 'smooth'});
 
+    document.querySelector('.search-group input').value = ""
   }
 
-  
+  const findBookCriteria = (data) => {
+    setBooks(data)
+  }
 
   return(
     <div className="main-div">
@@ -48,7 +51,7 @@ function App() {
           </div>
         </header>
         <Books books={books} error={error}/>
-        <SearchBar />
+        <SearchBar search={findBookCriteria}/>
         <footer className="footer">
           <div className="container">
               <div className="row">

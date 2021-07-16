@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import $ from 'jquery'
 
-const SearchBar = () => {
-    const [rating, setRating] = useState("")
+const SearchBar = (props) => {
+    const [rating, setRating] = useState(0)
     const [name, setName] = useState("")
-    const [author, setAuthor] = useState(0)
+    const [author, setAuthor] = useState("")
+    const [reserved, setReserved] = useState("")
 
     useEffect(()=> {
         $('.search-criteria').css("display","none");
@@ -33,9 +34,9 @@ const SearchBar = () => {
 
     let searchClick = (e) => {
         e.preventDefault()
-        const url = `/books/?rating=${rating}&name=${name}&author=${author}`
+        const url = `/books?rating=${rating}&name=${name}&author=${author}`
         $.get( url, function( data ) {
-            console.log(data)
+            props.search(data)
           }, "json" );
     }
 

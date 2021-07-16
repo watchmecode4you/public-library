@@ -19,13 +19,19 @@ exports.getBooks = async (req, res) => {
         let query = ""
         let books = {}
         if(!req.query.rating & !req.query.name & !req.query.author){
-            let query = `SELECT * FROM public."Books" ORDER BY id ASC `
-            const books = await client.query(query)
-            if (books.rows.length <= 0) res.status(200).json(books.rows)
-            else res.status(200).json(books.rows)
+            query = `SELECT * FROM public."Books" ORDER BY name ASC `
+            books = await client.query(query)
         }else{
-            let query = `SELECT * FROM public."Books" WHERE ORDER BY id ASC `
+            let like_rating_expression, like_name_expression, like_author_expression
+            !req.query.rating ? like_rating_expression = 'rating IS NOT null' : like_rating_expression = `rating = ${req.query.rating.trim().toLowerCase()}`
+            !req.query.name ? like_name_expression = 'and name IS NOT null' : like_name_expression = `and LOWER(name) Like '%${req.query.nametrim().toLowerCase()}%'`
+            !req.query.author ? like_author_expression = 'and author IS NOT null' : like_author_expression = `and LOWER(author) Like '%${req.query.author.trim().toLowerCase()}%'`
+            query = `SELECT * FROM public."Books" WHERE ${like_rating_expression}  ${like_name_expression}  ${like_author_expression} ORDER BY name ASC `
+            books = await client.query(query)
+            
         }
+        if (books.rows.length <= 0) res.status(200).json(books.rows)
+        else res.status(200).json(books.rows)
     }
     catch (e){
         console.log(e.stack)
