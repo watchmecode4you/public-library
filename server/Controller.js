@@ -16,10 +16,16 @@ exports.showMessage = (req, res) => {
 
 exports.getBooks = async (req, res) => {
     try{
-        let query = `SELECT * FROM public."Books" ORDER BY id ASC `
-        const books = await client.query(query)
-        if (books.rows.length <= 0) res.status(200).json(books.rows)
+        let query = ""
+        let books = {}
+        if(!req.query.rating & !req.query.name & !req.query.author){
+            let query = `SELECT * FROM public."Books" ORDER BY id ASC `
+            const books = await client.query(query)
+            if (books.rows.length <= 0) res.status(200).json(books.rows)
             else res.status(200).json(books.rows)
+        }else{
+            let query = `SELECT * FROM public."Books" WHERE ORDER BY id ASC `
+        }
     }
     catch (e){
         console.log(e.stack)

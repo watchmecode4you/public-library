@@ -1,16 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import $ from 'jquery'
 
 const SearchBar = () => {
-    const [first, setRating] = useState("")
-    const [last, setName] = useState("")
-    const [days, setAuthor] = useState(0)
+    const [rating, setRating] = useState("")
+    const [name, setName] = useState("")
+    const [author, setAuthor] = useState(0)
+
+    useEffect(()=> {
+        $('.search-criteria').css("display","none");
+    }, [])
 
     $(window).on('scroll', function() { 
-        if ($(window).scrollTop() >= $( '.header').offset().top + $('.header').outerHeight()) { 
+        if ($(window).scrollTop() >= $('.header').offset().top + $('.header').outerHeight()) { 
             $('.search-criteria').css("display","block");
         }
-        else{
+        else {
             $('.search-criteria').css("display","none");
         }
     });
@@ -28,14 +32,18 @@ const SearchBar = () => {
     }
 
     let searchClick = (e) => {
-
+        e.preventDefault()
+        const url = `/books/?rating=${rating}&name=${name}&author=${author}`
+        $.get( url, function( data ) {
+            console.log(data)
+          }, "json" );
     }
 
     return (
         <section class="search-criteria">
             <div className="form-group">
                 <label for="rating">Rating:</label>
-                <input type="text" onChange={handleRating} className="form-control" name="rating" id="rating" placeholder="rating"/>
+                <input type="text" onChange={handleRating} className="form-control" name="rating" id="rating" placeholder="Rating"/>
             </div>
             <div className="form-group">
                 <label for="Name">Name:</label>
