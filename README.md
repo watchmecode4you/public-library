@@ -28,9 +28,9 @@ This Webpage project is an interview assignment to be done for Innovum as part o
 * Download and Install your preferred code editor, for me it is visual studio code.
 * Clone the repository in Github and open the project using Visual Studio Code.
 * Open your Terminnal, Visual Studio Code as its own Terminal, just pross Ctrl + ~. 
-* Make sure you are in the server directory of the project, use "cd" for Windows
+* Make sure you are in the server directory of the project, use "cd" for Windows.
 * Type npm install, this will download all your dependencies saved in the node_modules of the server folder.
-* Make sure you are in the client directory of the project, use "cd" for Windows
+* Make sure you are in the client directory of the project, use "cd" for Windows.
 * Type npm install, this will download all your dependencies saved in the node_modules folder of the client folder.
 
 * You still have to Download & Install [Postgresql](https://www.postgresql.org/download/) server on your pc. 
