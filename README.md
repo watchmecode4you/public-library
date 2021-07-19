@@ -19,7 +19,7 @@ The user simply searches for a book and reserves it, that's it!
     - REACTJS
     - JQUERY
 * Database
-    -Postgresql
+    - Postgresql
 
 ### Installing
 
@@ -41,8 +41,10 @@ Authors are present in the next section.
 ## Authors
 
 Joseph Maary 
-    * [LinkedIn](https://www.linkedin.com/in/josephmaary/)
-    * [Facebook](https://www.facebook.com/jmaarri)
+
+* [LinkedIn](https://www.linkedin.com/in/josephmaary/) 
+
+* [Facebook](https://www.facebook.com/jmaarri)
 
 ## Acknowledgements
 
